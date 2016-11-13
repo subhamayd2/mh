@@ -1,0 +1,12 @@
+@media only screen and (max-width: 768px) {
+    body,html{
+        overflow-x: hidden !important;
+    }
+    .slides .caption h3{
+        font-size: 18pt;
+    }
+    .about-us-sm .page-container div{
+        float: none;
+        width: 100%;
+    }
+}

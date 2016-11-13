@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="initial-width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:700,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway|Open+Sans|Anton|Open+Sans+Condensed:300" rel="stylesheet">
+
+    <link rel="stylesheet" href="./../css/preloader.css">
+
+    <style>
+        html,body{
+            overflow-x: hidden !important;
+        }
+        .dropdown-content.select-dropdown li:not(.disabled) span{
+            color: #629bda !important;
+        }
+        .spacing-top{
+            margin-top: 10px;
+        }
+        .col h4{
+            color: skyblue;
+        }
+        .btn.custom-input{
+            border: 2px solid #64b5f6;
+            color: #64b5f6;
+            background: transparent;
+        }
+        .social a{
+            cursor: pointer;
+            display: block;
+            color: white;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+        .social a img{
+            vertical-align: middle;
+        }
+        .social.social-fb a{
+            background: #295396;
+        }
+        .social.social-gplus a{
+            background: #d21a1a;
+        }
+        hr{
+            width: 100%;
+            border: 1px solid #dddddd;
+            margin: 10px auto;
+        }
+        .login-wrapper,
+        .reg-wrapper{
+            -webkit-transition: all 300ms;
+            -moz-transition: all 300ms;
+            -ms-transition: all 300ms;
+            -o-transition: all 300ms;
+            transition: all 300ms;
+        }
+        .login-wrapper{
+            width: 100%;
+            padding-right: 10px;
+            position: absolute;
+            left: auto;
+            right: 0;
+        }
+        .reg-wrapper{
+            width: 100%;
+            padding-left: 10px;
+            position: absolute;
+            left: 100%;
+            right: auto;
+        }
+
+        @media only screen and (max-width: 400px){
+            .social a span{
+                display: none;
+            }
+            .social a{
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="loading">
+    <div class="loading-wrapper">
+        <div class="preloader"></div>
+        <p>Loading...</p>
+    </div>
+</div>
+
+<div class="login-wrapper">
+    <div class="row">
+        <div class="col s12">
+            <h4>Sign in!</h4>
+        </div>
+        <div class="col social s6 center">
+            <a class="btn blue darken-2 hoverable"><img src="./../img/linkedin.png" width="30"> <span>LinkedIn</span></a>
+        </div>
+        <div class="col social s6 center social-fb">
+            <a class="btn hoverable"><img src="./../img/fb.png" width="30"> <span>Facebook</span></a>
+        </div>
+        <div class="col s12 center spacing-top">
+            or
+        </div>
+        <div class="col s12 spacing-top">
+            <input type="email" placeholder="Email" id="uid">
+        </div>
+        <div class="col s12">
+            <input type="password" placeholder="Password" id="upass">
+        </div>
+        <p class="center">
+            <input type="checkbox" id="rem_me" />
+            <label for="rem_me">Remember me</label>
+        </p>
+        <div class="col s12 center">
+            <button class="btn blue lighten-1 waves-effect" id="login" onclick="login()">Log in</button>
+        </div>
+        <div class="col s12 spacing-top">
+            <hr size="1">
+        </div>
+        <div class="col s6 left">
+            <a>Forgot your password?</a>
+        </div>
+        <div class="col s6 right">
+            <a class="btn custom-input waves-effect right" href="#!" title="Signup" id="show-reg">Sign up <i class="material-icons right">arrow_forward</i></a>
+        </div>
+    </div>
+</div>
+<div class="reg-wrapper">
+    <div class="row">
+        <div class="col s12">
+            <h4>Sign up!</h4>
+        </div>
+        <div class="col social s6 center">
+            <a class="btn blue darken-2 hoverable"><img src="./../img/linkedin.png" width="30"> <span>LinkedIn</span></a>
+        </div>
+        <div class="col social s6 center social-fb">
+            <a class="btn hoverable"><img src="./../img/fb.png" width="30"> <span>Facebook</span></a>
+        </div>
+        <div class="col s12 center spacing-top">
+            or
+        </div>
+        <div class="input-field col s12">
+            <select name="type" id="type">
+                <option value="" disabled selected>Choose whether Mentor or Mentee</option>
+                <option value="Mentee">Mentee</option>
+                <option value="Mentor">Mentor</option>
+            </select>
+            <label>Signing up for?</label>
+        </div>
+        <div class="col s6">
+            <input type="text" placeholder="First name" id="fname">
+        </div>
+        <div class="col s6">
+            <input type="text" placeholder="Last name" id="lname">
+        </div>
+        <div class="col s12">
+            <input type="email" placeholder="Email" id="email">
+        </div>
+        <div class="col s12">
+            <input type="password" placeholder="Password" id="pass">
+        </div>
+        <div class="col s12">
+            <input type="password" placeholder="Confirm password" id="confirm_pass">
+        </div>
+        <div class="col s12 center">
+            <a class="btn blue lighten-1 waves-effect" id="signup">Sign up</a>
+        </div>
+        <div class="col s12 spacing-top">
+            <hr size="1">
+        </div>
+        <div class="col s12">
+            <a class="btn custom-input waves-effect left" href="#!" title="Signup" id="show-login"><i class="material-icons left">arrow_back</i> Sign in</a>
+        </div>
+    </div>
+</div>
+<script src="./../js/login.js"></script>
+</body>
+</html>

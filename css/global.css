@@ -1,0 +1,154 @@
+.spacing-top{
+    margin-top: 30px;
+}
+.spacing-top-lg{
+    margin-top: 60px;
+}
+.page-container{
+    max-width: 980px;
+    width: 100%;
+    margin: auto;
+}
+.page-title{
+    font-weight: lighter;
+    display: block;
+    margin: auto;
+    color: royalblue !important;
+}
+.page-title strong{
+    color: #8e9194;
+}
+.page-navbar{
+    z-index: 9999;
+    background: #ffffff !important;
+    -webkit-box-shadow:  0 3px 5px rgba(0,0,0,0.3) !important;
+    -moz-box-shadow:  0 3px 5px rgba(0,0,0,0.3) !important;
+    box-shadow:  0 3px 5px rgba(0,0,0,0.1) !important;
+}
+.page-navbar .right li a{
+    margin: auto 10px;
+    background: transparent;
+    background: -webkit-linear-gradient(transparent 50%, royalblue 50%);
+    background: -o-linear-gradient(transparent 50%, royalblue 50%);
+    background: -moz-linear-gradient(transparent 50%, royalblue 50%);
+    background: linear-gradient(transparent 50%, royalblue 50%);
+    background-size: 100% 200%;
+    background-position: top left;
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    -ms-transition: all 250ms;
+    -o-transition: all 250ms;
+    transition: all 250ms;
+}
+.page-navbar .right li a:hover{
+    background-position: 10px -5px;
+}
+.page-navbar .right li:last-child{
+    position: relative;
+}
+.page-navbar .right li:last-child a{
+    position: relative;
+    background: transparent !important;
+}
+.page-navbar .right li:last-child a span{
+    border: 1px solid rgba(0,0,0,0.5);
+    padding: 10px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+}
+.page-navbar .right li:last-child a span span{
+    padding: 0;
+    border: none;
+}
+.page-navbar .right li:last-child a span:hover{
+    background: rgba(0,0,0,0.5) !important;
+    color: #ffffff;
+}
+.page-navbar .right li:last-child a span span:hover{
+    background: transparent !important;
+}
+.page-navbar li a img{
+    vertical-align: middle;
+}
+.page-navbar li a{
+    font-family: "Open Sans", sans-serif;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    color: #3d3e3f;
+}
+.page-navbar .button-collapse{
+    color: #515254;
+}
+.login-trigger img{
+    vertical-align: text-bottom;
+}
+
+
+.page-footer{
+    border-top: 5px solid rgba(138, 196, 228, 0.86);
+}
+.page-footer .footer-copyright{
+    border-top: 1px dashed darkgray;
+}
+.page-footer .footer-copyright *{
+    color: #515254;
+}
+.page-footer .page-container .row li a{
+    padding: 15px auto !important;
+}
+.login-box{
+    z-index: 9999999;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 24, 33, 0.48);
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;
+    -webkit-transition: opacity 350ms;
+    -moz-transition: opacity 350ms;
+    -ms-transition: opacity 350ms;
+    -o-transition: opacity 350ms;
+    transition: opacity 350ms;
+}
+.login-wrapper{
+    padding: 5px;
+    position: absolute;
+    border: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 95%;
+    max-width: 450px;
+    margin: 0;
+    top: 20px;
+    left: 50%;
+    height: 600px;
+    background: #ffffff;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+#login-frame{
+    border: none;
+    margin: 0;
+    width: 100%;
+    height: 95%;
+    display: block;
+    padding: 0;
+}
+#close-login-box{
+    float: right;
+    cursor: pointer;
+    display: block;
+    text-align: right;
+}
