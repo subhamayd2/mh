@@ -43,7 +43,7 @@ $(document).ready(function () {
         $("#signup").text('Signing up...');
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/MentorzHub/php/register.php',
+            url: 'http://localhost/mh/php/register.php',
             data: {
                 fname: fname,
                 lname: lname,
@@ -73,7 +73,7 @@ $(document).ready(function () {
         $(".loading").fadeIn(500);
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/MentorzHub/php/register.php',
+            url: 'http://localhost/mh/php/register.php',
             data: {
                 email: $("#email").val(),
                 func: 'checkEmail'
@@ -115,7 +115,7 @@ function login(){
 
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/MentorzHub/php/login.php',
+        url: 'http://localhost/mh/php/login.php',
         data: {
             uid: uid,
             pass: pass

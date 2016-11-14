@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         $.ajax({
            type: 'POST',
-            url : 'http://localhost/MentorzHub/php/register.php',
+            url : 'http://localhost/mh/php/register.php',
             data: str,
             success: function (result) {
                 var s = result.toString();

@@ -1,9 +1,11 @@
 <?php
 session_start();
 $prefix_img = "./../";
+$prefix_a = "./../";
 if(!isset($conn)){
     require "./php/conn.php";
     $prefix_img = "";
+    $prefix_a = "./";
 }
 $fname = "Sign in";
 $hash = null;
@@ -28,7 +30,7 @@ if(isset($_SESSION['uid'])){
 ?>
     <nav class="page-navbar">
         <div class="nav-wrapper page-container">
-            <a href="./../" class="brand-logo page-title"><strong>Mentorz</strong>Hub</a>
+            <a href="<?php echo $prefix_a; ?>" class="brand-logo page-title"><strong>Mentorz</strong>Hub</a>
             <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a class="take-test">Test</a></li>
@@ -64,7 +66,7 @@ if(isset($_SESSION['uid'])){
 <div class="login-box">
     <div class="login-wrapper">
         <a id="close-login-box"><i class="material-icons">close</i></a>
-        <iframe id="login-frame" src="inc/login.html"></iframe>
+        <iframe id="login-frame" src="<?php echo $prefix_a; ?>inc/login.html"></iframe>
     </div>
 </div>
     <script>

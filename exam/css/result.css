@@ -1,0 +1,20 @@
+.banner{
+    padding: 20px;
+    color: white;
+    background: url(./../../img/badge.png) rgba(0,0,0,0.6) no-repeat 50% 0;
+    background-size: auto 100%;
+}
+.banner h5 b{
+    color: yellow;
+}
+.data-top span, #time{
+    color: rgba(173, 224, 255, 1);
+    font-size: 30px;
+}
+.data-label p{
+    border-top: 2px solid white;
+    font-size: 20px;
+}
+.report h5{
+    color: #4977be;
+}

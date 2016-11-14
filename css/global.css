@@ -157,3 +157,7 @@
     display: block;
     text-align: right;
 }
+
+.waves-effect.waves-blue .waves-ripple {
+    background-color: rgba(100, 190, 255, 0.26);
+}

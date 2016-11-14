@@ -27,3 +27,5 @@ if(mysqli_num_rows($r) > 0){
     }
     $log = "Logout";
 }
+
+$conn = null;

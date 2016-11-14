@@ -26,23 +26,38 @@ include "./../php/conn.php";
 include "./../inc/nav.php";
 ?>
 
+<div id="rules" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="btn red darken-1 waves-effect start-test">Start test</a>
+    </div>
+</div>
+
 <div class="page-container">
     <h1 class="page-heading"><i class="icon ion-university"></i> Choose a TEST</h1>
     <ul class="collapsible spacing-top-lg" data-collapsible="accordion">
         <li>
-            <div class="collapsible-header"><i class="icon ion-compose"></i>GATE</div>
-            <div class="collapsible-body">
-                <p><a>Computer Science & Engineering</a></p>
-                <p><a>Computer Science & Engineering</a></p>
-                <p><a>Computer Science & Engineering</a></p>
+            <div class="collapsible-header waves-effect waves-blue"><i class="icon ion-compose"></i>GATE</div>
+            <div class="collapsible-body exam-selector">
+                <p><a class="btn blue lighten-1 waves-effect" data-testid="gate" data-subid="1">Computer Science & Engineering</a></p>
+                <p><a class="btn blue lighten-1 waves-effect" data-testid="gate" data-subid="2">Electrical Engineering</a></p>
             </div>
         </li>
         <li>
-            <div class="collapsible-header"><i class="icon ion-compose"></i>Aptitude</div>
-            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+            <div class="collapsible-header waves-effect waves-blue"><i class="icon ion-compose"></i>Aptitude</div>
+            <div class="collapsible-body exam-selector">
+                <p><a class="btn blue lighten-1 waves-effect" data-testid="aptitude" data-subid="1">Quantitative</a></p>
+                <p><a class="btn blue lighten-1 waves-effect" data-testid="aptitude" data-subid="2">Verbal</a></p>
+            </div>
         </li>
 
     </ul>
 </div>
+
+<script src="js/settings.js"></script>
+<script src="js/setup.js"></script>
 </body>
 </html>

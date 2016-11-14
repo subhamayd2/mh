@@ -71,6 +71,7 @@ else{
     }
 }
 
+$conn = null;
 
 ?>
 <!DOCTYPE html>
