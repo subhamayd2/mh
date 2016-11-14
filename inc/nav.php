@@ -1,6 +1,10 @@
 <?php
 session_start();
-require "./php/conn.php";
+$prefix_img = "./../";
+if(!isset($conn)){
+    require "./php/conn.php";
+    $prefix_img = "";
+}
 $fname = "Sign in";
 $hash = null;
 if(isset($_SESSION['uid'])){
@@ -24,7 +28,7 @@ if(isset($_SESSION['uid'])){
 ?>
     <nav class="page-navbar">
         <div class="nav-wrapper page-container">
-            <a href="./" class="brand-logo page-title"><strong>Mentorz</strong>Hub</a>
+            <a href="./../" class="brand-logo page-title"><strong>Mentorz</strong>Hub</a>
             <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a class="take-test">Test</a></li>
@@ -36,10 +40,10 @@ if(isset($_SESSION['uid'])){
                                 echo '<span class="material-icons">perm_identity</span> ';
                             }
                             else{
-                                if(file_exists('profile_pic/'. $_SESSION['uid'] .'/pp.jpg'))
-                                    echo '<img src="profile_pic/'. $_SESSION['uid'] .'/pp.jpg" class="circle" width="20" alt="">';
+                                if(file_exists($prefix_img.'profile_pic/'. $_SESSION['uid'] .'/pp.jpg'))
+                                    echo '<img src="'.$prefix_img.'profile_pic/'. $_SESSION['uid'] .'/pp.jpg" class="circle" width="20" alt="">';
                                 else
-                                    echo '<img src="profile_pic/user.png" class="circle" width="20" alt="">';
+                                    echo '<img src="'.$prefix_img.'profile_pic/user.png" class="circle" width="20" alt="">';
                             }
                             ?>
                             <span class="user-name"><?php echo $fname; ?></span>
@@ -76,7 +80,15 @@ if(isset($_SESSION['uid'])){
             $("#close-login-box").click(function () {
                 hide_login_box();
             });
-
+            $(".take-test").click(function (e) {
+                e.preventDefault();
+                if($(".user-name").text() == "Sign in"){
+                    show_login_box();
+                }
+                else {
+                    window.location.assign("exam/");
+                }
+            });
             
         });
         function show_login_box(){

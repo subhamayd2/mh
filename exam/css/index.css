@@ -1,0 +1,6 @@
+.collapsible-body p{
+    padding: 3px 20px;
+}
+.collapsible-body p:first-child{
+    padding-top: 10px;
+}

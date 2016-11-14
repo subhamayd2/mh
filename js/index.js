@@ -8,15 +8,7 @@ $(document).ready(function(){
 
     $('.carousel-slider').carousel({full_width: true});
 
-    $(".take-test").click(function (e) {
-        e.preventDefault();
-        if($(".user-name").text() == "Sign in"){
-            show_login_box();
-        }
-        else {
-            alert("sad");
-        }
-    });
+    
     /*$("#close-login-box").click(function () {
         hide_login_box();
     });

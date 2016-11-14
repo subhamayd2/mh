@@ -18,6 +18,11 @@
 .page-title strong{
     color: #8e9194;
 }
+.page-heading{
+    font-weight: lighter;
+    color: skyblue;
+    border-bottom: 1px solid skyblue;
+}
 .page-navbar{
     z-index: 9999;
     background: #ffffff !important;
