@@ -23,11 +23,12 @@ $(document).ready(function () {
         var lname = $("#lname").val();
         var email = $("#email").val();
         var pass = $("#pass").val();
-        var confirm_pass = $("#confirm_pass").val();
+        var mobile = $("#mobile").val();
 
         var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        var mobile_reg = /^(\+\d{1,3}[- ]?)?\d{10}$/;
 
-        if(fname == "" || lname == "" || email == "" || pass == "" || confirm_pass == ""){
+        if(fname == "" || lname == "" || email == "" || pass == "" || mobile == ""){
             Materialize.toast('Please enter all details!', 3000, 'blue lighten-1');
             return;
         }
@@ -35,11 +36,12 @@ $(document).ready(function () {
             Materialize.toast('Please check your email.', 3000, 'yellow darken-4');
             return;
         }
-        if(pass != confirm_pass){
-            Materialize.toast('Passwords don\'t match.', 3000, 'red darken-1');
+        if(!mobile_reg.test(mobile)){
+            Materialize.toast('Please check your mobile number.', 3000, 'yellow darken-4');
             return;
         }
         if(!chkmail) return;
+        if($("#signup").text().toLowerCase() != 'sign up') return;
         $("#signup").text('Signing up...');
         $.ajax({
             type: 'POST',
@@ -48,6 +50,7 @@ $(document).ready(function () {
                 fname: fname,
                 lname: lname,
                 email: email,
+                mobile: mobile,
                 pass: pass,
                 type: type,
                 func: 'setUser'
@@ -55,6 +58,7 @@ $(document).ready(function () {
             success: function (result) {
                 $("#signup").text('Sign up');
                 var s = result.toString();
+                alert(s);
                 if(s == 1){
                     Materialize.toast('Successfully registered. PLease check your mail!', 3000, 'green darken-1');
                     window.localStorage.setItem("__id", "one-time");

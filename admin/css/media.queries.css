@@ -1,0 +1,25 @@
+@media only screen and (max-width: 992px) {
+    body,html{
+        overflow-x: hidden !important;
+    }
+    .sidebar-wrapper{
+        left: -250px;
+    }
+    .sidebar-wrapper.open{
+        left: 0;
+        -webkit-box-shadow: 5px 0 5px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 5px 0 5px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .sidebar-backdrop.active{
+        display: block;
+    }
+    .main-content-wrapper{
+        position: relative;
+        width: 100%;
+        margin: 0;
+    }
+    .main-content-heading{
+        font-size: 4vh;
+    }
+}

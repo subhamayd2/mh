@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Quicksand:700,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway|Open+Sans|Anton|Open+Sans+Condensed:300" rel="stylesheet">
@@ -23,9 +24,11 @@
 include './inc/nav.php';
 ?>
 
+<form method="get" action="our-mentors.php" id="searchForm" style="display: none"></form>
+
 <div class="slider">
     <a class="custom-fab-test take-test hoverable">Take a Test</a>
-    <input id="search-bar-mentor" class="custom-input" type="search" placeholder="Search mentor by name or their expertise">
+    <input id="search-bar-mentor" form="searchForm" name="q" required class="custom-input" type="search" placeholder="Search mentor by name or their expertise">
     <div class="no-select-nofill"></div>
     <ul class="slides">
         <li>

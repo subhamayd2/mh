@@ -1,0 +1,35 @@
+#user_active{
+    font-size: 15pt;
+}
+.status_done{
+    background: limegreen !important;
+}
+.status_pending{
+    background: #f44336;
+}
+.status_done:hover,
+.status_pending:hover{
+    background: rgba(0,0,0,0.5);
+}
+#call_alert{
+    display: none;
+    margin: 5px auto;
+    padding: 10px;
+    width: 400px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #f44336;
+    color: white;
+}
+#call_alert p{
+    font-size: large;
+}
+#call_alert a{
+    width: 100px;
+    display: block;
+    margin: auto;
+}
+.sidebar-wrapper .sidebar-actions ul li:nth-child(1){
+    background: #64b5f6;
+}

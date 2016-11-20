@@ -1,0 +1,32 @@
+<div class="confirm-box-wrapper">
+    <div class="row center">
+        <div class="col s12">
+            <h4>Are you sure?</h4>
+        </div>
+        <div class="col s12">
+            <a id="confirm-yes" class="btn green waves-effect">Yes</a>
+            <a id="confirm-no" class="btn red waves-effect">No</a>
+        </div>
+    </div>
+</div>
+<script>
+    $(".confirm-box-wrapper").on('click', 'a', function () {
+        if(this.id == 'confirm-yes'){
+            var email = $(this).data('email');
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/mh/admin/php/delete_user.php',
+                data: {
+                    email: email
+                },
+                success: function (result) {
+                    var s = result.toString();
+                    if(s == 0){
+                        Materialize.toast('There has been some error. Please try again!', 3000, 'red darken-1');
+                    }
+                }
+            });
+        }
+        $(".confirm-box-wrapper").css({display: 'none'});
+    });
+</script>

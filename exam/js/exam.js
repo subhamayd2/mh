@@ -91,7 +91,10 @@ function addFormElem(type, name, value) {
 }
 
 function fullscreen(){
+    $("#exam-status").text("Started");
+    $("#exam-status").addClass("started");
     if(!timer) start_timer();
+
     var el = document.documentElement
         , rfs = // for newer Webkit and Firefox
             el.requestFullScreen

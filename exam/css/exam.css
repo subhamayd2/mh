@@ -1,4 +1,5 @@
 .topbar{
+    position: relative;
     padding-top: 10px;
     width: 100%;
     -webkit-box-shadow:  0 5px 10px rgba(0,0,0,0.3);
@@ -100,4 +101,42 @@
 .ques span{
     font-size: 40px;
     color: skyblue;
+}
+.ans p{
+    margin: 5px 0;
+    padding: 10px;
+    -webkit-transition: all 350ms;
+    -moz-transition: all 350ms;
+    -ms-transition: all 350ms;
+    -o-transition: all 350ms;
+    transition: all 350ms;
+}
+.ans p:hover{
+    background: #efefef;
+}
+.ans p label{
+    width: 100%;
+}
+#exam-status{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #e53935;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+#exam-status.started{
+    background: limegreen;
 }

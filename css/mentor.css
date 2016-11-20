@@ -1,0 +1,110 @@
+.search-bar{
+    padding-top: 10px;
+    margin-top: 2px;
+    background: #efefef;
+}
+#search-box::-webkit-input-placeholder {
+    color: #0d0d0d;
+}
+
+#search-box:-moz-placeholder { /* Firefox 18- */
+    color: #0d0d0d;
+}
+
+#search-box::-moz-placeholder {  /* Firefox 19+ */
+    color: #0d0d0d;
+}
+
+#search-box:-ms-input-placeholder {
+    color: #0d0d0d;
+}
+
+.profile-box{
+    background: #efefef;
+    margin: 5px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+}
+.profile-box img{
+    margin-top: 10px;
+}
+.profile-box h5{
+    color: #4977be;
+    border-bottom: 1px solid #4977be;
+}
+.profile-box a.btn{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    width: 100%;
+}
+.profile-box a.btn i{
+    font-size: 32px;
+}
+.ngHidden{
+    width: 0;
+}
+.input-field i.prefix,
+.input-field label,
+.input-field label:focus{
+    color: #64b5f6 !important;
+}
+.content{
+    position: relative;
+}
+/*===================================================*/
+.spin{
+    display: inline-block;
+    -webkit-animation: spin;
+    -o-animation: spin;
+    animation: spin;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+

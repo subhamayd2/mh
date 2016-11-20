@@ -1,5 +1,6 @@
 <?php
 require "./../php/conn.php";
+require "php/conn.php";
 session_start();
 if(!isset($_SESSION['uid']) || !isset($_POST['test_id'])){
     header("location: ./../");
@@ -49,7 +50,7 @@ $aid = $_POST['aid'];
 $ans_arr = explode(",", $aid);
 
 $sql = "select qID, qans, qtype from tbl_$test_id where qID in ($qid)";
-$r = mysqli_query($conn, $sql);
+$r = mysqli_query($connection, $sql);
 
 while($row = mysqli_fetch_assoc($r)){
     $pos = array_search($row['qID'], $qid_arr);
@@ -82,7 +83,7 @@ else{
 
 $sql_res = "insert into result (uemail, test_id, sub_id, qid, aid, score)
 values ('".$_SESSION['uid']."', '$test_id', $sub_id, '$qid', '$aid', $score)";
-if(!mysqli_query($conn, $sql_res)){
+if(!mysqli_query($connection, $sql_res)){
 
 }
 $conn = null;

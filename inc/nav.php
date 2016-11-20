@@ -29,17 +29,18 @@ if(isset($_SESSION['uid'])){
 }
 ?>
     <nav class="page-navbar">
-        <div class="nav-wrapper page-container">
+        <div class="nav-wrapper nav-container">
             <a href="<?php echo $prefix_a; ?>" class="brand-logo page-title"><strong>Mentorz</strong>Hub</a>
             <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a class="take-test">Test</a></li>
+                <li><a href="#!">Ask a question</a></li>
                 <li><a href="badges.html">Blog</a></li>
-                <li><a href="collapsible.html">Our Mentors</a></li>
+                <li><a href="our-mentors.php">Our Mentors</a></li>
                 <li><a href="mobile.html">Be an Mentor</a></li>
                 <li><a class="login-trigger dropdown-button" data-activates="user-options" title="<?php echo $fname; ?>">
                         <span><?php if(!isset($_SESSION['uid'])){
-                                echo '<span class="material-icons">perm_identity</span> ';
+                                echo '<span class="icon ion-person"></span> ';
                             }
                             else{
                                 if(file_exists($prefix_img.'profile_pic/'. $_SESSION['uid'] .'/pp.jpg'))
@@ -49,14 +50,15 @@ if(isset($_SESSION['uid'])){
                             }
                             ?>
                             <span class="user-name"><?php echo $fname; ?></span>
-                            <?php if(isset($_SESSION['uid'])) echo '<span class="material-icons">arrow_drop_down</span> '; ?>
+                            <?php if(isset($_SESSION['uid'])) echo '<span class="material-icons">keyboard_arrow_down</span>'; ?>
                         </span></a>
                 </li>
             </ul>
             <ul class="side-nav" id="mobile-side-nav">
                 <li><a href="sass.html">Test</a></li>
+                <li><a href="#!">Ask a question</a></li>
                 <li><a href="badges.html">Blog</a></li>
-                <li><a href="collapsible.html">Our Mentors</a></li>
+                <li><a href="our-mentors.php">Our Mentors</a></li>
                 <li><a href="mobile.html">Be an Mentor</a></li>
                 <li><a class="login-trigger" title="<?php echo $fname; ?>"><span><?php echo $fname; ?></span></a></li>
                 <?php if(isset($_SESSION['uid'])) echo '<li><a class="red-text" href="php/logout.php" title="Logout">Logout</a></li>'; ?>

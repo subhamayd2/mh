@@ -1,11 +1,10 @@
 <?php
-require "./../php/conn.php";
+require "php/conn.php";
 session_start();
 $q = array();
 
 
 function get_nav(){
-    global $conn;
     $limit = $_POST['no_of_ques'];
     for($i = 1; $i <= $limit; $i++){
         if($i == 1)
@@ -16,7 +15,7 @@ function get_nav(){
     echo '<input type="hidden" value="'.$limit.'" id="limit">';
 }
 function get_ques(){
-    global $conn, $q;
+    global $connection, $q;
     $limit = $_POST['no_of_ques'];
     $subid = $_POST['sub_test_id'];
     $subid = (int)$subid;
@@ -26,9 +25,9 @@ function get_ques(){
         $sl = $limit - $dl;
         $d_sql = "select * from tbl_".$_POST['test_id']." where qsub_id = $subid and qtype='double' order by rand() limit ".$dl;
         $s_sql = "select * from tbl_".$_POST['test_id']." where qsub_id = $subid and qtype='single' order by rand() limit ".$sl;
-        $r = mysqli_query($conn, $s_sql);
+        $r = mysqli_query($connection, $s_sql);
         print_q($r, 1);
-        $r = mysqli_query($conn, $d_sql);
+        $r = mysqli_query($connection, $d_sql);
         print_q($r, $sl+1);
         echo '<input type="hidden" value="'. $_POST['d_n_marks']."**". $_POST['d_p_marks'] . "**". $_POST['d_no_marks'] .'" 
         id="double">';
@@ -36,7 +35,7 @@ function get_ques(){
     }
     else{
         $sql = "select * from tbl_".$_POST['test_id']." where qsub_id = $subid and qtype='single' order by rand() limit ".$limit;
-        print_q(mysqli_query($conn, $sql), 1);
+        print_q(mysqli_query($connection, $sql), 1);
         echo '<input type="hidden" value="none" id="double">';
     }
 
@@ -68,19 +67,19 @@ function print_q($res, $start){
                     <div class="col s12">
                         <p class="ans_'.$index.'">
                             <input name="ans_'.$index.'" type="radio" id="ans_'.$index.'_a" />
-                            <label for="ans_'.$index.'_a">'.$row['qa'].'</label>
+                            <label for="ans_'.$index.'_a">a) '.$row['qa'].'</label>
                         </p>
                         <p class="ans_1">
                             <input name="ans_'.$index.'" type="radio" id="ans_'.$index.'_b" />
-                            <label for="ans_'.$index.'_b">'.$row['qb'].'</label>
+                            <label for="ans_'.$index.'_b">b) '.$row['qb'].'</label>
                         </p>
                         <p class="ans_1">
                             <input name="ans_'.$index.'" type="radio" id="ans_'.$index.'_c" />
-                            <label for="ans_'.$index.'_c">'.$row['qc'].'</label>
+                            <label for="ans_'.$index.'_c">c) '.$row['qc'].'</label>
                         </p>
                         <p class="ans_1">
                             <input name="ans_'.$index.'" type="radio" id="ans_'.$index.'_d" />
-                            <label for="ans_'.$index.'_d">'.$row['qd'].'</label>
+                            <label for="ans_'.$index.'_d">d) '.$row['qd'].'</label>
                         </p>
                     </div>
                 </div>
@@ -95,7 +94,7 @@ function print_q($res, $start){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Examination on <?php echo $_POST['test_name']; ?></title>
     <meta name="viewport" content="initial-width=device-width, initial-scale=1.0">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
@@ -114,6 +113,9 @@ function print_q($res, $start){
     <link rel="stylesheet" href="css/exam.css">
 </head>
 <body>
+
+<span id="exam-status">Not Started</span>
+
 <div class="topbar">
     <div class="page-container center">
         <a class="btn red darken-1 waves-effect" id="final_submit">Final submit</a>

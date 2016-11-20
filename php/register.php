@@ -67,16 +67,17 @@ function setUser(){
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
+    $mobile = $_POST['mobile'];
     $pass = $_POST['pass'];
     $pass = md5($pass);
     $hash = md5(rand(1000,9999));
-    $sql = "insert into users (ufname, ulname, uemail, upass, utype, uhash) values ('$fname', '$lname', '$email', '$pass', '$type', '$hash');
-insert into user_details (u_fname, u_lname, u_email) values ('$fname', '$lname', '$email')";
+    $sql = "insert into users (ufname, ulname, uemail, umobile, upass, utype, uhash) values ('$fname', '$lname', '$email', '$mobile', '$pass', '$type', '$hash');
+insert into user_details (u_fname, u_lname, u_name, u_email, u_mobile) values ('$fname', '$lname', '$fname $lname', '$email', '$mobile')";
     if(!mysqli_multi_query($conn, $sql)){
         echo 0;
     }
     else{
-        echo 1;
+        echo $_SERVER['DOCUMENT_ROOT'].'/mh/php/PHPMailer/config.php';return;
         $name = $fname. ' ' .$lname;
         sendConfirm($name, $email, $hash);
     }
@@ -85,10 +86,10 @@ insert into user_details (u_fname, u_lname, u_email) values ('$fname', '$lname',
 
 
 function sendConfirm($name, $email, $hash){
-    require_once $_SERVER['DOCUMENT_ROOT'].'/MentorzHub/php/PHPMailer/config.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/MentorzHub/php/PHPMailer/class.phpmailer.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/MentorzHub/php/PHPMailer/class.smtp.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/MentorzHub/php/PHPMailer/PHPMailerAutoload.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'mh/php/PHPMailer/config.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'mh/php/PHPMailer/class.phpmailer.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'mh/php/PHPMailer/class.smtp.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'mh/php/PHPMailer/PHPMailerAutoload.php';
 
     $mailer = new PHPMailer();
     $mailer->IsSMTP();  // telling the class to use SMTP
