@@ -27,9 +27,8 @@ $uedu_subj = null;
 $uedu_inst = null;
 $sec_edu = null;
 
-if(isset($_GET['u']) && isset($_GET['h'])){
+if(isset($_GET['u'])){
     $_uid = urldecode($_GET['u']);
-    $hash = $_GET['h'];
 }
 else{
     header("location: ./");

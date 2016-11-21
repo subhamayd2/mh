@@ -60,7 +60,7 @@ $(document).ready(function () {
                 var s = result.toString();
                 alert(s);
                 if(s == 1){
-                    Materialize.toast('Successfully registered. PLease check your mail!', 3000, 'green darken-1');
+                    Materialize.toast('Successfully registered. Please check your mail!', 3000, 'green darken-1');
                     window.localStorage.setItem("__id", "one-time");
                 }
                 else {

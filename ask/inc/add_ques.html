@@ -1,0 +1,74 @@
+<div class="add-ques-wrapper">
+    <div class="add-ques-toggle">
+        <p><span class="icons ion-chatbubble-working "></span> Ask a question <i class="icons ion-chevron-up right"></i></p>
+    </div>
+    <div class="add-ques-content">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="question-text" class="materialize-textarea"></textarea>
+                        <label for="question-text">Ask a question</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="question-category">
+                            <option value="" disabled selected>Choose a category</option>
+                            <option value='Stream after 10th'>Stream after 10th</option> <option value='Engineering Branch Selector'>Engineering Branch Selector</option> <option value='MBA Branch Selector'>MBA Branch Selector</option> <option value='Common Aptitude Test'>Common Aptitude Test</option> <option value='IIT-JEE'>IIT-JEE</option> <option value='AIPMT'>AIPMT</option> <option value='Employablity'>Employablity</option> <option value='GATE'>GATE</option> <option value='Indian Engineering Services'>Indian Engineering Services</option>
+                        </select>
+                        <label for="question-category">Materialize Select</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center">
+                        <a class="btn blue lighten-1 waves-effect" id="add-ques-submit">Submit</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+        $(".add-ques-toggle").click(function () {
+            $(".add-ques-wrapper").toggleClass('active');
+        });
+        $("#add-ques-submit").click(function () {
+            var ques = $("#question-text").val();
+            var cat = $("#question-category").val();
+            if(ques == "" || cat == ""){
+                Materialize.toast('Incomplete field(s)..', 3000, 'yellow darken-4');
+                return;
+            }
+            $("#add-ques-submit").text("Submitting...");
+            var d = new Date();
+            var date = (d.getYear()+1900) +"-"+ zero(d.getMonth() + 1) +"-"+ zero(d.getDate()) +" "+ zero(d.getHours()) +":"+ zero(d.getMinutes()) +":"+ zero(d.getSeconds());
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/mh/ask/php/add_question.php',
+                data: {
+                    question: ques,
+                    category: cat,
+                    q_timestamp: date
+                },
+                success: function (result) {
+                    $("#add-ques-submit").text("Submit");
+                    var s = result.toString();
+                    if(s == 1){
+                        $("#question-text").val("");
+                        Materialize.toast('Successfully submitted your question.', 3000, 'green darken-1');
+                    }
+                    else{
+                        Materialize.toast('There has been some error. Please try again!', 3000, 'red darken-1');
+                    }
+                }
+            });
+        });
+    });
+    function zero(val) {
+        if(val < 10) return "0" + val;
+        else return val;
+    }
+</script>

@@ -12,4 +12,14 @@
     .page-title.brand-logo{
         margin-left: 0 !important;
     }
+    .add-ques-wrapper{
+        right: 0 !important;
+        width: 150px !important;
+    }
+    .add-ques-wrapper span.icons{
+        display: none;
+    }
+    .add-ques-wrapper.active{
+        width: 100% !important;
+    }
 }

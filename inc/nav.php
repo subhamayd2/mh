@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $prefix_img = "./../";
 $prefix_a = "./../";
 if(!isset($conn)){
@@ -23,8 +25,8 @@ if(isset($_SESSION['uid'])){
 <?php
 if(isset($_SESSION['uid'])){
     echo '<ul id="user-options" class="dropdown-content">
-    <li><a href="view-profile.php?u='.urlencode($_SESSION['uid']).'&h='.$hash.'" title="View profile">View profile</a></li>
-    <li><a href="php/logout.php" title="Logout">Logout</a></li>
+    <li><a href="'.$prefix_a.'view-profile.php?u='.urlencode($_SESSION['uid']).'" title="View profile">View profile</a></li>
+    <li><a href="'.$prefix_a.'php/logout.php" title="Logout">Logout</a></li>
 </ul>';
 }
 ?>
@@ -34,10 +36,10 @@ if(isset($_SESSION['uid'])){
             <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a class="take-test">Test</a></li>
-                <li><a href="#!">Ask a question</a></li>
-                <li><a href="badges.html">Blog</a></li>
-                <li><a href="our-mentors.php">Our Mentors</a></li>
-                <li><a href="mobile.html">Be an Mentor</a></li>
+                <li><a href="<?php echo $prefix_a; ?>ask/">Ask a question</a></li>
+                <li><a href="<?php echo $prefix_a; ?>badges.html">Blog</a></li>
+                <li><a href="<?php echo $prefix_a; ?>our-mentors.php">Our Mentors</a></li>
+                <li><a href="<?php echo $prefix_a; ?>mobile.html">Be an Mentor</a></li>
                 <li><a class="login-trigger dropdown-button" data-activates="user-options" title="<?php echo $fname; ?>">
                         <span><?php if(!isset($_SESSION['uid'])){
                                 echo '<span class="icon ion-person"></span> ';
@@ -55,11 +57,11 @@ if(isset($_SESSION['uid'])){
                 </li>
             </ul>
             <ul class="side-nav" id="mobile-side-nav">
-                <li><a href="sass.html">Test</a></li>
-                <li><a href="#!">Ask a question</a></li>
-                <li><a href="badges.html">Blog</a></li>
-                <li><a href="our-mentors.php">Our Mentors</a></li>
-                <li><a href="mobile.html">Be an Mentor</a></li>
+                <li><a class="take-test">Test</a></li>
+                <li><a href="<?php echo $prefix_a; ?>ask/">Ask a question</a></li>
+                <li><a href="<?php echo $prefix_a; ?>badges.html">Blog</a></li>
+                <li><a href="<?php echo $prefix_a; ?>our-mentors.php">Our Mentors</a></li>
+                <li><a href="<?php echo $prefix_a; ?>mobile.html">Be an Mentor</a></li>
                 <li><a class="login-trigger" title="<?php echo $fname; ?>"><span><?php echo $fname; ?></span></a></li>
                 <?php if(isset($_SESSION['uid'])) echo '<li><a class="red-text" href="php/logout.php" title="Logout">Logout</a></li>'; ?>
             </ul>
@@ -90,7 +92,7 @@ if(isset($_SESSION['uid'])){
                     show_login_box();
                 }
                 else {
-                    window.location.assign("exam/");
+                    window.location.assign("<?php echo $prefix_a; ?>exam/");
                 }
             });
             
