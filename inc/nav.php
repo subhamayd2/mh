@@ -25,8 +25,8 @@ if(isset($_SESSION['uid'])){
 <?php
 if(isset($_SESSION['uid'])){
     echo '<ul id="user-options" class="dropdown-content">
-    <li><a href="'.$prefix_a.'view-profile.php?u='.urlencode($_SESSION['uid']).'" title="View profile">View profile</a></li>
-    <li><a href="'.$prefix_a.'php/logout.php" title="Logout">Logout</a></li>
+    <li><a href="http://localhost/mh/view-profile.php?u='.urlencode($_SESSION['uid']).'" title="View profile">View profile</a></li>
+    <li><a href="http://localhost/mh/php/logout.php" title="Logout">Logout</a></li>
 </ul>';
 }
 ?>
@@ -36,19 +36,19 @@ if(isset($_SESSION['uid'])){
             <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a class="take-test">Test</a></li>
-                <li><a href="<?php echo $prefix_a; ?>ask/">Ask a question</a></li>
-                <li><a href="<?php echo $prefix_a; ?>badges.html">Blog</a></li>
-                <li><a href="<?php echo $prefix_a; ?>our-mentors.php">Our Mentors</a></li>
-                <li><a href="<?php echo $prefix_a; ?>mobile.html">Be an Mentor</a></li>
+                <li><a href="http://localhost/mh/ask/">Ask a question</a></li>
+                <li><a href="http://localhost/mh/badges.html">Blog</a></li>
+                <li><a href="http://localhost/mh/our-mentors.php">Our Mentors</a></li>
+                <li><a href="http://localhost/mh/mobile.html">Be an Mentor</a></li>
                 <li><a class="login-trigger dropdown-button" data-activates="user-options" title="<?php echo $fname; ?>">
                         <span><?php if(!isset($_SESSION['uid'])){
                                 echo '<span class="icon ion-person"></span> ';
                             }
                             else{
                                 if(file_exists($prefix_img.'profile_pic/'. $_SESSION['uid'] .'/pp.jpg'))
-                                    echo '<img src="'.$prefix_img.'profile_pic/'. $_SESSION['uid'] .'/pp.jpg" class="circle" width="20" alt="">';
+                                    echo '<img src="http://localhost/mh/profile_pic/'. $_SESSION['uid'] .'/pp.jpg" class="circle" width="20" alt="">';
                                 else
-                                    echo '<img src="'.$prefix_img.'profile_pic/user.png" class="circle" width="20" alt="">';
+                                    echo '<img src="http://localhost/mh/profile_pic/user.png" class="circle" width="20" alt="">';
                             }
                             ?>
                             <span class="user-name"><?php echo $fname; ?></span>
@@ -58,19 +58,19 @@ if(isset($_SESSION['uid'])){
             </ul>
             <ul class="side-nav" id="mobile-side-nav">
                 <li><a class="take-test">Test</a></li>
-                <li><a href="<?php echo $prefix_a; ?>ask/">Ask a question</a></li>
-                <li><a href="<?php echo $prefix_a; ?>badges.html">Blog</a></li>
-                <li><a href="<?php echo $prefix_a; ?>our-mentors.php">Our Mentors</a></li>
-                <li><a href="<?php echo $prefix_a; ?>mobile.html">Be an Mentor</a></li>
+                <li><a href="http://localhost/mh/ask/">Ask a question</a></li>
+                <li><a href="http://localhost/mh/badges.html">Blog</a></li>
+                <li><a href="http://localhost/mh/our-mentors.php">Our Mentors</a></li>
+                <li><a href="http://localhost/mh/mobile.html">Be an Mentor</a></li>
                 <li><a class="login-trigger" title="<?php echo $fname; ?>"><span><?php echo $fname; ?></span></a></li>
-                <?php if(isset($_SESSION['uid'])) echo '<li><a class="red-text" href="php/logout.php" title="Logout">Logout</a></li>'; ?>
+                <?php if(isset($_SESSION['uid'])) echo '<li><a class="red-text" href="http://localhost/mh/php/logout.php" title="Logout">Logout</a></li>'; ?>
             </ul>
         </div>
     </nav>
 <div class="login-box">
     <div class="login-wrapper">
         <a id="close-login-box"><i class="material-icons">close</i></a>
-        <iframe id="login-frame" src="<?php echo $prefix_a; ?>inc/login.html"></iframe>
+        <iframe id="login-frame" src="http://localhost/mh/inc/login.html"></iframe>
     </div>
 </div>
     <script>
@@ -92,7 +92,7 @@ if(isset($_SESSION['uid'])){
                     show_login_box();
                 }
                 else {
-                    window.location.assign("<?php echo $prefix_a; ?>exam/");
+                    window.location.assign("http://localhost/mh/exam/");
                 }
             });
             

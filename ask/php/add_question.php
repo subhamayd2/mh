@@ -2,7 +2,7 @@
 require './../../php/conn.php';
 session_start();
 if(!isset($_SESSION['uid'])){
-    die("x");
+    die("0");
 }
 
 $email = $_SESSION['uid'];

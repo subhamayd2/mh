@@ -32,6 +32,6 @@
     -moz-border-radius: 1px;
     border-radius: 1px;
 }
-.question-wrapper .col span:hover{
+.question-wrapper .col a span:hover{
     background: #60b0ee;
 }
