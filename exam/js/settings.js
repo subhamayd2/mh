@@ -306,7 +306,7 @@ var test = [
     {
         test_id: 'nine',
         sub_test_id: 1,
-        sub_test_name:'Stream Selector Assessment',
+        sub_test_name:'9th & 10th Branch Selector Assessment',
         duration: 5400,
         no_of_ques: 30,
         negative: 0,
@@ -418,7 +418,7 @@ var test = [
     {
         test_id: 'iit',
         sub_test_id: 1,
-        sub_test_name:'Biology',
+        sub_test_name:'Mathematics',
         duration: 5400,
         no_of_ques: 35,
         negative: 0.33,
